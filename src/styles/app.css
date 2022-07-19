@@ -11,3 +11,12 @@
 
 /* Import Components */
 @import 'components/logo.component';
+@import 'components/boot-data';
+@import 'components/profile-body';
+
+a {
+  color: unset;
+}
+a:hover {
+  color: unset;
+}

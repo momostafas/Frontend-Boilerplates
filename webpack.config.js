@@ -30,7 +30,7 @@ module.exports = (env, options) => {
       port: 4000,
       https: false,
       hot: true,
-      historyApiFallback: true,
+      historyApiFallback: false,
       watchOptions: {
         poll: true
       }

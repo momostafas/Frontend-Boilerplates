@@ -1,5 +1,14 @@
 .logo {
   &__image {
-    border: rem(4px) solid value($color-basic, bright);
+    width: 200px;
+    margin-top: 20px;
+  }
+
+  p {
+    color: green;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 14px;
+    margin-top: 4px;
   }
 }

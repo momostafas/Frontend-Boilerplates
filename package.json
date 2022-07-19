@@ -20,7 +20,10 @@
   "dependencies": {
     "@babel/polyfill": "^7.10.4",
     "bootstrap": "^4.6.0",
-    "jquery": "3.5.1"
+    "gsap": "~3.10.4",
+    "jquery": "3.5.1",
+    "three": "~0.142.0",
+    "typer-js": "~5.5.3"
   },
   "devDependencies": {
     "@babel/core": "^7.16.5",

@@ -10,6 +10,7 @@ body {
   font-size: calc($default-font-size * 0.65);
   height: 100%;
   width: 100%;
+  background-color: black;
 
   @media screen and (min-width: value($media, s)) {
     font-size: calc($default-font-size * 0.8);
