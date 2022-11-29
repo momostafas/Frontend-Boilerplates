@@ -40,14 +40,20 @@ function init() {
 
   scene.add(stars);
 
-  const geometry = new THREE.TorusGeometry(100, 1, 30, 100);
+  const geometry = new THREE.TorusGeometry(80, 1, 30, 100);
   const material = new THREE.MeshBasicMaterial({ color: 0xffffff });
   const torus = new THREE.Mesh(geometry, material);
   console.log(torus);
   torus.position.z = 100;
   torus.position.y = 500;
-  torus.rotateY = 30;
-  scene.add(torus);
+  // scene.add(torus);
+
+  const sphrtrGeometry = new THREE.SphereGeometry(800, 320, 100);
+  const spherematerial = new THREE.MeshBasicMaterial({ color: 0xffffff });
+  const sphere = new THREE.Mesh(sphrtrGeometry, spherematerial);
+  torus.position.z = 100;
+  torus.position.y = 500;
+  scene.add(sphere);
   // eslint-disable-next-line no-use-before-define
   animate();
 }
