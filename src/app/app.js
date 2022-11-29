@@ -1,28 +1,40 @@
+/* eslint-disable */
 // import $ from 'jquery';
 import 'styles/app.css';
 import './vendor';
 import './boot';
 import './loadScene';
 import * as THREE from 'three';
-
+import { GLTFLoader } from './gtfLoader';
 console.log(THREE);
-let scene, camera, renderer, starGeo;
+let scene, camera, renderer, starGeo, loader, sword;
 
 //rendering loop
 
 function init() {
   //create scene object
   scene = new THREE.Scene();
+  loader = new GLTFLoader();
 
   //setup camera with facing upward
   camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 1, 1000);
   camera.position.z = 1;
-  camera.rotation.x = Math.PI / 2;
+const light = new THREE.PointLight( 0xff0000, 1, 100 );
+light.position.set( 50, 50, 50 );
+scene.add( light );
 
   //setup renderer
   renderer = new THREE.WebGLRenderer();
   renderer.setSize(window.innerWidth, window.innerHeight);
   document.getElementById('profile-body').appendChild(renderer.domElement);
+
+    loader.load( '/src/assets/3d/endurance.glb', function ( gltf )
+    {
+        sword = gltf.scene;  // sword 3D object is loaded
+        sword.scale.set(2, 2, 2);
+        sword.position.y = 4;
+        scene.add(sword);
+    } );
 
   starGeo = new THREE.BufferGeometry();
   const pointsArray = [];
@@ -40,20 +52,6 @@ function init() {
 
   scene.add(stars);
 
-  const geometry = new THREE.TorusGeometry(80, 1, 30, 100);
-  const material = new THREE.MeshBasicMaterial({ color: 0xffffff });
-  const torus = new THREE.Mesh(geometry, material);
-  console.log(torus);
-  torus.position.z = 100;
-  torus.position.y = 500;
-  // scene.add(torus);
-
-  const sphrtrGeometry = new THREE.SphereGeometry(800, 320, 100);
-  const spherematerial = new THREE.MeshBasicMaterial({ color: 0xffffff });
-  const sphere = new THREE.Mesh(sphrtrGeometry, spherematerial);
-  torus.position.z = 100;
-  torus.position.y = 500;
-  scene.add(sphere);
   // eslint-disable-next-line no-use-before-define
   animate();
 }
